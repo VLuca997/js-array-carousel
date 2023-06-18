@@ -18,12 +18,13 @@ const imagesCarousel = [
 let carouselDiv = document.querySelector('.carousel');
 let arrowUp = document.querySelector('.arrow-up');
 let arrowDown = document.querySelector('.arrow-down');
+let imgIndex = 0;// impostiamo il corrente indice dell'immagine a 0 per renderla attiva.
 
 
 // Ciclo for per generare il markup delle immagini nel carosello
-for ( let i = 0; i < imagesCarousel.length; i++){
+for (let i = 0; i < imagesCarousel.length; i++){
     let img = document.createElement('img'); // creo un elemento img
-    img.classList('carousel-img'); //gli attribuiscoi la classe carousel-img
+    img.classList.add('carousel-img'); //gli attribuiscoi la classe carousel-img
 
     if (i === 0){ // Se l'indice è 0
         img.classList.add('active'); // Aggiungiamo anche la classe active per rendere l'elemento visibile
@@ -34,8 +35,38 @@ for ( let i = 0; i < imagesCarousel.length; i++){
 
 // Creo gli event listner per i button
 arrowUp.addEventListener('click', scrollUp);
-arrowDown.addEventListener('click',scrollDown);
+arrowDown.addEventListener('click', scrollDown);
+
+
+
+
 
 //funzione per il click dei button, in modo che quando si arriva alal fine dell'array si ricominci da capo.
+function scrollUp(){
+    let activeImg = document.querySelector('.carousel-img.active');
+    activeImg.classList.remove('active')  // al click del pulsante rimuoviamo la classe active ddall'img
 
-//funzione per scrollUp
+    imgIndex--;
+    if(imgIndex < 0){
+        imgIndex = imagesCarousel.length - 1; //se l'indice diventa negativo,decrentiamo l'indice dell'immagine attuale per farla sparire.
+    }
+
+    let newActive = document.querySelectorAll('.carousel-img')[imgIndex];// seleziono la nuova calsse 
+    newActive.classList.add('active'); // do la classe active alla nuova classe creata
+
+}
+
+function scrollDown(){
+    let activeImg = document.querySelector('.carousel-img.active');
+
+    activeImg.classList.remove('active');
+
+    imgIndex++;
+
+    if(imgIndex >= imagesCarousel.length - 1 ){
+        imgIndex = 0;
+    }
+    let newActive = querySelectorAll('.carousel-img')[imgIndex];
+    newActive.classList.add('active');
+
+}
