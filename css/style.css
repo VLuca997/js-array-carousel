@@ -17,7 +17,6 @@ body {
         margin: 0 auto;
         overflow: hidden;
         border-radius: 1.25rem;
-        border: 2px dashed red;
 }
 
 .carousel-img {
@@ -40,8 +39,8 @@ body {
         height: 2rem;
         border-radius: 50%;
         background-color: transparent;
-        border: 1px solid red;
-        color: red;
+        border: 1px solid white;
+        color: white;
         text-align: center;
         line-height: 2rem;
         cursor: pointer;
