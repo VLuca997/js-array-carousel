@@ -66,7 +66,7 @@ function scrollDown(){
     if(imgIndex >= imagesCarousel.length - 1 ){
         imgIndex = 0;
     }
-    let newActive = querySelectorAll('.carousel-img')[imgIndex];
+    let newActive = document.querySelectorAll('.carousel-img')[imgIndex];
     newActive.classList.add('active');
 
 }
